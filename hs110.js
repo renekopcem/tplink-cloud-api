@@ -37,6 +37,11 @@ class HS110 extends HS100 {
     let r = await super.tplink_request({"emeter": {"get_daystat": { 'year': year, 'month': month }}})
     return JSON.parse(JSON.parse(r).result.responseData).emeter.get_daystat
   }
+
+  async getMonthStats(year) {
+    let r = await super.tplink_request({"emeter": {"get_monthstat": { 'year': year }}})
+    return JSON.parse(JSON.parse(r).result.responseData).emeter.get_monthstat
+  }
 }
 
 module.exports = HS110;
